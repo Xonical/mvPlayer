@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox maxWidth="1.7976931348623157E308" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="61.0" text="FooBar" HBox.hgrow="ALWAYS" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" text="425435345" HBox.hgrow="ALWAYS">
+         <HBox.margin>
+            <Insets left="55.0" />
+         </HBox.margin>
+      </Label>
+   </children>
+</HBox>
