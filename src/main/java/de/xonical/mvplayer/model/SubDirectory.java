@@ -1,13 +1,13 @@
 package de.xonical.mvplayer.model;
 
-import java.time.LocalDate;
+import java.nio.file.Path;
+import java.util.List;
 
+import de.xonical.mvplayer.util.MyUtil;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 
 /**
  * Model class for a Person.
@@ -16,26 +16,31 @@ import javafx.beans.property.StringProperty;
  */
 public class SubDirectory {
 
-	private final StringProperty subDirectory;
-	private  IntegerProperty countedFiles;
+	private  StringProperty subDirectory;
+	private  ObjectProperty pathOfSubDirectory;
+	private  IntegerProperty countedVideoFiles;
 	//private final ObjectProperty<LocalDate> birthday;
+	private ObservableList<VideoFile> videoFilesData;
 
-	/**
-	 * Default constructor.
-	 */
-	public SubDirectory() {
-		this(null);
-	}
+
+//	/**
+//	 * Default constructor.
+//	 */
+//	public SubDirectory() {
+//		//this(null);
+//	}
 
 	/**
 	 * Constructor with some initial data.
+	 * @param path
 	 *
 	 * @param firstName
 	 * @param lastName
 	 */
-	public SubDirectory(String subDirectory) {
-		this.subDirectory = new SimpleStringProperty(subDirectory);
-		this.countedFiles = new SimpleIntegerProperty(new Integer (0));
+	public SubDirectory(Path path) {
+		this.setPath(path);
+
+		//this.countedFiles = new SimpleIntegerProperty(new Integer (0));
 		//this.birthday = new SimpleObjectProperty<LocalDate>(LocalDate.of(1999, 2, 21));
 	}
 
@@ -52,16 +57,33 @@ public class SubDirectory {
 	}
 
 	public IntegerProperty countedFilesProperty() {
-		return countedFiles;
+		return countedVideoFiles;
 	}
 
-	public Integer getCountedFiles() {
-		return countedFiles.get();
+	public Integer getCountedVideoFiles() {
+		return videoFilesData.size();
 	}
 
-	public void setCountedFiles(Integer countedFiles) {
-		this.countedFiles.set(countedFiles);
+	public void setCountedVideoFiles(Integer value) {
+		countedVideoFiles.set(value);
 	}
+
+	public ObservableList<VideoFile> getVideoFilesData() {
+		return this.videoFilesData;
+	}
+
+	public void setVideoFilesData(ObservableList<VideoFile> observableList) {
+		this.videoFilesData = observableList;
+	}
+
+	public ObjectProperty getPath() {
+		return this.pathOfSubDirectory;
+	}
+
+	public void setPath(Path value){
+		this.pathOfSubDirectory.set(value);
+	}
+
 
 
 

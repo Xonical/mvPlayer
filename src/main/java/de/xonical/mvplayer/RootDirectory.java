@@ -18,7 +18,8 @@ import org.pmw.tinylog.Logger;
 
 
 
-import de.xonical.mvplayer.view.Directory;
+
+import de.xonical.mvplayer.presentation.Directory;
 
 public class RootDirectory {
 

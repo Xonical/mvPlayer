@@ -7,7 +7,8 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.List;
 
-import de.xonical.mvplayer.view.Directory;
+import de.xonical.mvplayer.model.VideoFile;
+import de.xonical.mvplayer.presentation.Directory;
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
@@ -53,8 +54,8 @@ public class Main extends Application {
 
 		Path path1 = Paths.get("i:/MediathekView/Abendschau");
 		Path path2 = Paths.get("i:/MediathekView/Frag_den_Lesch");
-//		directories.add(new Directory (path1 , null));
-//		directories.add(new Directory ( path2, null));
+//		directoriesPane.add(new Directory (path1 , null));
+//		directoriesPane.add(new Directory ( path2, null));
 
 
 		ObservableList<Movie> movies = FXCollections.observableArrayList();

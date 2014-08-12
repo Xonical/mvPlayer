@@ -1,0 +1,55 @@
+package de.xonical.mvplayer.model;
+
+import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+/**
+ *
+ * @author adam-bien.com
+ */
+public class RegistrationService {
+
+    private EntityManager em;
+    private EntityManagerFactory emf;
+    private EntityTransaction et;
+//
+    @PostConstruct
+    public void init() {
+        this.emf = Persistence.createEntityManagerFactory("mvplayer");
+        this.em = this.emf.createEntityManager();
+        this.et = this.em.getTransaction();
+    }
+//
+    public List<Attendee> all() {
+        return this.em.createNamedQuery(Attendee.findAll).getResultList();
+    }
+//
+    public Attendee save(Attendee attendee) {
+        et.begin();
+        Attendee merged = this.em.merge(attendee);
+        et.commit();
+        return merged;
+    }
+
+    public void save() {
+        et.begin();
+        em.flush();
+        et.commit();
+    }
+
+    public void remove(Attendee attendee) {
+        et.begin();
+        this.em.remove(attendee);
+        et.commit();
+    }
+
+    public void close() {
+        et.begin();
+        et.commit();
+        em.close();
+    }
+}

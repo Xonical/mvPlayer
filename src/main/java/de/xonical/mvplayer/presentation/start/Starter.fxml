@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<VBox fx:id="rootContainer" prefHeight="398.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.xonical.mvplayer.presentation.start.StarterController">
+   <children>
+      <HBox prefHeight="29.0" prefWidth="365.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="236.0" text="Bitte Verzeichnis zum indexieren auswählen:" />
+            <Button fx:id="chooseDirectoryButton" mnemonicParsing="false" onAction="#handleChooseDirectory" text="Choose" />
+            <Button fx:id="startIndexButton" mnemonicParsing="false" onAction="#prepareIndex" text="Start Index" />
+            <Button fx:id="startProgramm" mnemonicParsing="false" onAction="#startProgramm" text="Starte Programm" />
+         </children>
+      </HBox>
+      <HBox prefHeight="48.0" prefWidth="365.0">
+         <children>
+            <Label fx:id="selectedDirectoryLabel" prefHeight="17.0" prefWidth="354.0" text="Label" />
+         </children>
+      </HBox>
+      <ImageView fx:id="imageView" fitHeight="179.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true" />
+      <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
+      <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="364.0" progress="0.0" />
+      <Label fx:id="statusbarLabel" prefHeight="20.0" prefWidth="357.0" text="Label" />
+   </children>
+</VBox>

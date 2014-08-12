@@ -6,6 +6,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import de.xonical.mvplayer.model.VideoFile;
+
 
 public class MediaToTextLinker {
 
@@ -19,7 +21,7 @@ public class MediaToTextLinker {
 			String linkedTextFile = path + mediaExtension + ".txt";
 
 			if (isTextFileExists(linkedTextFile)){
-				System.out.println("TextFile: " + linkedTextFile);
+				//System.out.println("TextFile: " + linkedTextFile);
 				videoFile.setLinkedFile(linkedTextFile);
 			}
 		}

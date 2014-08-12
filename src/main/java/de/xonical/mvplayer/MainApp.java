@@ -2,8 +2,10 @@ package de.xonical.mvplayer;
 
 import java.io.IOException;
 
+import com.airhacks.afterburner.injection.Injector;
+
 import de.xonical.mvplayer.model.SubDirectory;
-import de.xonical.mvplayer.view.PersonOverviewController;
+import de.xonical.mvplayer.presentation.PersonOverviewController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,8 +35,8 @@ public class MainApp extends Application {
 	 */
 	public MainApp() {
 		// Add some sample data
-		subDirectories.add(new SubDirectory("d:/enzo"));
-		subDirectories.add(new SubDirectory("d:/javacv"));
+		//subDirectories.add(new SubDirectory("d:/enzo"));
+		//subDirectories.add(new SubDirectory("d:/javacv"));
 	}
 
 	/**
@@ -53,7 +55,7 @@ public class MainApp extends Application {
 
 		initRootLayout();
 
-		//showPersonOverview();
+		// showPersonOverview();
 	}
 
 	/**
@@ -62,22 +64,20 @@ public class MainApp extends Application {
 	public void initRootLayout() {
 		try {
 			// Load root layout from fxml file.
-//			FXMLLoader loader = new FXMLLoader();
-//			loader.setLocation(MainApp.class
-//					.getResource("view/RootLayout.fxml"));
-//			rootLayout = (BorderPane) loader.load();
+			// FXMLLoader loader = new FXMLLoader();
+			// loader.setLocation(MainApp.class
+			// .getResource("view/RootLayout.fxml"));
+			// rootLayout = (BorderPane) loader.load();
 
-
-//			FXMLLoader loader = new FXMLLoader();
-//			loader.setLocation(MainApp.class
-//					.getResource("view/Playground.fxml"));
-//			rootLayout2 = (VBox) loader.load();
+//			 FXMLLoader loader = new FXMLLoader();
+//			 loader.setLocation(MainApp.class
+//			 .getResource("Playground.fxml"));
+//			 rootLayout3 = (VBox) loader.load();
 
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class
-					.getResource("view/Starter.fxml"));
+					.getResource("presentation/start/Starter.fxml"));
 			rootLayout3 = (VBox) loader.load();
-
 
 			// Show the scene containing the root layout.
 			Scene scene = new Scene(rootLayout3);
@@ -123,5 +123,10 @@ public class MainApp extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+	}
+
+	@Override
+	public void stop() throws Exception {
+		Injector.forgetAll();
 	}
 }

@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import de.xonical.mvplayer.view.Directory;
+import de.xonical.mvplayer.model.VideoFile;
+import de.xonical.mvplayer.presentation.Directory;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 

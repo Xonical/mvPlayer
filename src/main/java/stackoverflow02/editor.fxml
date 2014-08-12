@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" hgap="5" vgap="10" fx:controller="stackoverflow02.EditorPresenter">
+    <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="First Name:"/>
+    <TextField fx:id="firstNameTextField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Last Name"/>
+    <TextField fx:id="lastNameTextField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Email"/>
+    <TextField fx:id="emailTextField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <HBox GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2">
+        <Button fx:id="addEditButton" onAction="#addEdit" />
+    </HBox>
+
+</GridPane>

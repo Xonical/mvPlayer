@@ -10,12 +10,12 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import listViewTest.VideoFile;
-
 import com.xuggle.mediatool.IMediaReader;
 import com.xuggle.mediatool.MediaListenerAdapter;
 import com.xuggle.mediatool.ToolFactory;
 import com.xuggle.mediatool.event.IVideoPictureEvent;
+
+import de.xonical.mvplayer.model.VideoFile;
 
 // http://www.javacodegeeks.com/2011/02/xuggler-tutorial-frames-capture-video.html
 // http://blog.knoldus.com/2012/11/26/extract-a-frame-image-from-video-in-scala/
