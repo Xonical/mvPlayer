@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.xonical.mvplayer.presentation.main.ImageboxPresenter">
+   <children>
+      <ImageView fx:id="imageView" fitHeight="180.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="imageLabel" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="70.0" prefWidth="330.0" text="Label" />
+   </children>
+</VBox>
