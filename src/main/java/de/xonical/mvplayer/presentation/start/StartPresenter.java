@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.SetChangeListener;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,10 +39,7 @@ import de.xonical.mvplayer.service.GUIUpdater;
 import de.xonical.mvplayer.util.MyUtil;
 import de.xonical.mvplayer.util.Settings;
 
-// http://java-buddy.blogspot.de/2013/03/javafx-simple-example-of.html
-
-public class StarterController implements Initializable {
-
+public class StartPresenter implements Initializable {
 	@FXML private Button chooseDirectoryButton;
 
 	@FXML private Button startIndexButton;
@@ -58,30 +56,21 @@ public class StarterController implements Initializable {
 
 	@FXML Button startProgramm;
 
-	@FXML VBox rootContainer;
 	@Inject RegistrationService service;
 
 	private File selectedDirectory;
 
 	private SimpleIntegerProperty counterForLabel;
 
-//	private ObservableList<ObservableList<VideoFile>> videoFilesData = FXCollections
-//			.observableArrayList();
-
 	private int countedVideoFiles;
 
 	private List<Directory> directories;
 
-//	private SimpleIntegerProperty counterForLabel;
-
-	// private Duration videoFilesData;
+	private int countedVideosInDirectories;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		startIndexButton.setDisable(true);
-
-
-
 
 		List<Directory> allDirectories = service.allDirectories();
 		if(allDirectories.size() > 0){
@@ -131,23 +120,26 @@ public class StarterController implements Initializable {
 		TestTask testTask = new TestTask();
 
 		// Bind:
-		GUIUpdater.bind(StarterController.this.statusbarLabel.textProperty(),
+		GUIUpdater.bind(StartPresenter.this.statusbarLabel.textProperty(),
 				testTask.statusbarTextProperty());
-		GUIUpdater.bind(StarterController.this.textArea.textProperty(),
+		GUIUpdater.bind(StartPresenter.this.textArea.textProperty(),
 				testTask.getHistoryProperty());
 
-		StarterController.this.progressBar.progressProperty().bind(
+		StartPresenter.this.progressBar.progressProperty().bind(
 				testTask.progressProperty()); // No need to use GUIUpdater here,
 												// Task class provides the same
 												// functionality for progress.
 
 		testTask.setCountedFilesProperty(countedVideoFiles);
 		testTask.setDirectoryData(this.directories);
+		testTask.setCountedVideosInDirectories(countedVideosInDirectories);
+
 		// GUIUpdater.bind(counterForLabel, testTask.countedFiles);
 
 		// Start task:
 		Thread tmpThread = new Thread(testTask);
 		tmpThread.start();
+			startProgramm.setDisable(false);
 	}
 
 	private void prepareIndex() {
@@ -157,7 +149,7 @@ public class StarterController implements Initializable {
 			return f.isDirectory();
 		});
 
-		int countedVideosInDirectories = 0;
+		countedVideosInDirectories = 0;
 		List<Directory> directories = new ArrayList<Directory>();
 		for (File subDir :subDirectories){
 			Directory dir = new Directory();
@@ -191,40 +183,13 @@ public class StarterController implements Initializable {
 
 	@FXML
 	private void startProgramm(ActionEvent event) {
-		Path tempDirectory = Settings.getInstance().getInstance()
-				.getTempDirectory();
-		System.out.println("TempDIR: " + tempDirectory);
-		openNewWindow2("../main/MainView.fxml");
+//		Path tempDirectory = Settings.getInstance().getInstance()
+//				.getTempDirectory();
+//		System.out.println("TempDIR: " + tempDirectory);
+//		openNewWindow2("../main/MainView.fxml");
 	}
 
-	private void openNewWindow2(String string) {
 
-		//Settings.getInstance().setAllVideosInDirectory(videoFilesData);
-
-		MainView appView = new MainView();
-		Scene scene = new Scene(appView.getView());
-
-		Stage stageTheLabelBelongs = (Stage) this.rootContainer.getScene()
-				.getWindow();
-		stageTheLabelBelongs.setScene(scene);
-	}
-
-	private void openNewWindow(String FXMLFile) {
-		// ChildNode child;
-		try {
-			URL url = getClass().getResource(FXMLFile);
-			FXMLLoader fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(url);
-			fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
-			AnchorPane page = (AnchorPane) fxmlLoader.load(url.openStream());
-
-			rootContainer.getChildren().clear();// /name of pane where you want
-												// to put the fxml.
-			rootContainer.getChildren().add(page);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
 	private class TestTask extends Task<Void> {
 		private SimpleStringProperty statusbar = new SimpleStringProperty();
@@ -235,13 +200,14 @@ public class StarterController implements Initializable {
 
 		private SimpleObjectProperty<WritableImage> imageProperty;
 		private List<Directory> directories;
+		private int countedVideosInDirectories;
 
 		@Override
 		protected Void call() throws Exception {
 
 			try {
 				int counter = 0;
-				int maxValue = countedFiles.get();
+				int maxValue = this.getCountedVideosInDirectories();
 
 				long startTime = System.currentTimeMillis();
 
@@ -278,13 +244,21 @@ public class StarterController implements Initializable {
 
 			// Unbind:
 			GUIUpdater.unbind(
-					StarterController.this.statusbarLabel.textProperty(),
+					StartPresenter.this.statusbarLabel.textProperty(),
 					this.statusbarTextProperty());
-			GUIUpdater.unbind(StarterController.this.counterForLabel, this.countedFiles);
-			GUIUpdater.unbind(StarterController.this.textArea.textProperty(),
+			GUIUpdater.unbind(StartPresenter.this.counterForLabel, this.countedFiles);
+			GUIUpdater.unbind(StartPresenter.this.textArea.textProperty(),
 					this.getHistoryProperty());
 
 			return null;
+		}
+
+		private int getCountedVideosInDirectories() {
+			return this.countedVideosInDirectories;
+		}
+
+		public void setCountedVideosInDirectories(int countedVideosInDirectories){
+			this.countedVideosInDirectories = countedVideosInDirectories;
 		}
 
 		public SimpleObjectProperty<WritableImage> getImageProperty() {
@@ -332,4 +306,5 @@ public class StarterController implements Initializable {
 			this.statusbar.set(value);
 		}
 	}
-	}
+}
+

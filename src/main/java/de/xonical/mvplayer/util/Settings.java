@@ -60,6 +60,7 @@ public class Settings {
 		return this.videoFilesData;
 	}
 
+
 	public void setAllVideosInDirectory(ObservableList<ObservableList<VideoFile>> videoFileData) {
 		this.videoFilesData = videoFileData;
 	}

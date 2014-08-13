@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml" fx:controller="de.xonical.mvplayer.presentation.directories.DirectoryPresenter">
-  <children>
-    <TableView fx:id="directoriesTable" maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-  </children>
-  <stylesheets>
-    <URL value="@day.css" />
-  </stylesheets>
+<AnchorPane fx:id="directoriesPane" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="de.xonical.mvplayer.presentation.directories.DirectoryPresenter">
+	<children>
+		<TableView fx:id="directoriesTable">
+			<columns>
+				<TableColumn text="Ordner" prefWidth="150">
+					<cellValueFactory>
+						<PropertyValueFactory property="directoryName" />
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn text="Dateien" prefWidth="150">
+					<cellValueFactory>
+						<PropertyValueFactory property="countedVideoFiles" />
+					</cellValueFactory>
+				</TableColumn>
+			</columns>
+		</TableView>
+	</children>
 </AnchorPane>
