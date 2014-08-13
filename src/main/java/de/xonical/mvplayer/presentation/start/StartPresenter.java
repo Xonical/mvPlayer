@@ -184,10 +184,17 @@ public class StartPresenter implements Initializable {
 
 	@FXML
 	private void startProgramm(ActionEvent event) {
-//		Path tempDirectory = Settings.getInstance().getInstance()
-//				.getTempDirectory();
-//		System.out.println("TempDIR: " + tempDirectory);
-//		openNewWindow2("../main/MainView.fxml");
+
+		MainView mainView = new MainView();
+		Scene scene = new Scene(mainView.getView());
+
+		Stage stageTheLabelBelongs = (Stage) this.statusbarLabel.getScene()
+				.getWindow();
+		stageTheLabelBelongs.setWidth(1280);
+		stageTheLabelBelongs.setHeight(800);
+		stageTheLabelBelongs.centerOnScreen();
+
+		stageTheLabelBelongs.setScene(scene);
 	}
 
 

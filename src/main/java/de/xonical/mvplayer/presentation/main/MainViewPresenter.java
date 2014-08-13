@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javax.inject.Inject;
 import de.xonical.mvplayer.model.Directory;
 import de.xonical.mvplayer.model.RegistrationService;
@@ -41,11 +42,15 @@ public class MainViewPresenter implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+
+
 		this.directoryView = new DirectoryView();
 		directoryPresenter = (DirectoryPresenter) this.directoryView
 				.getPresenter();
 
-		this.directoriesPane.getChildren().add(this.directoryView.getView());
+		VBox vBox = new VBox();
+		vBox.getChildren().add(this.directoryView.getView());
+		this.directoriesPane.getChildren().add(vBox);
 	}
 
 

@@ -10,7 +10,7 @@
 	xmlns:fx="http://javafx.com/fxml/1"
 	fx:controller="de.xonical.mvplayer.presentation.directories.DirectoryPresenter">
 	<children>
-		<TableView fx:id="directoriesTable">
+		<TableView fx:id="directoriesTable" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<columns>
 				<TableColumn text="Ordner" prefWidth="150">
 					<cellValueFactory>
