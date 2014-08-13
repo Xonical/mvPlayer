@@ -1,11 +1,12 @@
 package de.xonical.mvplayer.presentation.main;
 
+import java.io.File;
 import java.net.URL;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
@@ -17,9 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
-
 import javax.inject.Inject;
-
 import de.xonical.mvplayer.model.Directory;
 import de.xonical.mvplayer.model.RegistrationService;
 import de.xonical.mvplayer.model.SubDirectory;
@@ -62,7 +61,7 @@ public class MainViewPresenter implements Initializable {
 
 			// Every video file of each subfolder
 			for (final VideoFile videoFile : videoFiles) {
-				final Path parent = videoFile.getPath().getParent();
+				final Path parent = Paths.get(new File(videoFile.getVideoFileName()).toURI());
 				subDirectory = new SubDirectory(parent);
 				// we can break the loop, because we have the parent directory
 				break;

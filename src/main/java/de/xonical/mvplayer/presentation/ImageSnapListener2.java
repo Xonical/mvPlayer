@@ -5,14 +5,11 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 import javax.imageio.ImageIO;
-
 import org.pmw.tinylog.Logger;
-
+import com.google.common.io.Files;
 import com.xuggle.mediatool.MediaListenerAdapter;
 import com.xuggle.mediatool.event.IVideoPictureEvent;
-
 import de.xonical.mvplayer.model.VideoFile;
 
 public class ImageSnapListener2 extends MediaListenerAdapter {
@@ -45,12 +42,14 @@ public class ImageSnapListener2 extends MediaListenerAdapter {
 		String outputFilename ="";
 		try {
 
+
+		String nameWithoutExtension = Files.getNameWithoutExtension(videoFile.getVideoFileName());
 		outputFilename = destinationFolder + "/"
-					+ videoFile.getNameWithoutExtension() + ".png";
+					+ nameWithoutExtension + ".png";
 			Logger.info("Try to write file: " + outputFilename);
 			ImageIO.write(image, "png", new File(outputFilename));
 			Logger.info("File: " + outputFilename + " written");
-			videoFile.setThumbnail(Paths.get(outputFilename));
+			videoFile.setThumbnailFile(outputFilename);
 			return outputFilename;
 		} catch (IOException e) {
 			Logger.info("IOException @ File: " + outputFilename);

@@ -11,9 +11,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import de.xonical.mvplayer.model.VideoFile;
 import de.xonical.mvplayer.presentation.Directory;
+import de.xonical.mvplayer.presentation.start.MediaToTextLinker;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -73,7 +73,7 @@ public class SubDirectory {
 		String directoryName = newValue.getDirectoryName();
 		Path path = Paths.get(directoryName);
 		this.path = path;
-		filterFilesWithExtensionMP4(newValue);
+		//filterFilesWithExtensionMP4(newValue);
 	}
 
 	// public List<File> getListOfFilesFromSubdirectory(File firstSubDirectory)
@@ -87,22 +87,24 @@ public class SubDirectory {
 	// return Arrays.asList(listFilesFromDirectory);
 	// }
 
-	private void filterFilesWithExtensionMP4(Directory newValue) {
-		Stream<Path> stream = null;
-		try {
-			stream = Files.list(Paths.get(newValue.getDirectoryName())).filter(
-					path -> path.toString().endsWith(".mp4"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		stream.forEach(p -> {
-			if (videoFileList == null) {
-				videoFileList = new ArrayList<VideoFile>();
-			}
-			videoFileList.add(new VideoFile(p));
-		});
-	}
+//	private void filterFilesWithExtensionMP4(Directory newValue) {
+//		Stream<Path> stream = null;
+//		try {
+//			stream = Files.list(Paths.get(newValue.getDirectoryName())).filter(
+//					path -> path.toString().endsWith(".mp4"));
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//
+//		stream.forEach(p -> {
+//			if (videoFileList == null) {
+//				videoFileList = new ArrayList<VideoFile>();
+//			}
+//			VideoFile vFile = new VideoFile();
+//			vFile.setVideoFileName(p.)
+//			videoFileList.add(new VideoFile(p));
+//		});
+//	}
 
 	public static void main(String[] args) {
 		//SubDirectory subDirectory2 = new SubDirectory(new Directory("d:/test", 33));

@@ -28,7 +28,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import javax.inject.Inject;
-import listViewTest.MediaToTextLinker;
+import com.google.common.io.Files;
 import de.xonical.mvplayer.model.Directory;
 import de.xonical.mvplayer.model.RegistrationService;
 import de.xonical.mvplayer.model.VideoFile;
@@ -256,7 +256,12 @@ public class StarterController implements Initializable {
 					for (VideoFile videoFile : videoFiles) {
 						nailer.create(videoFile);
 						// Thread.sleep(100);
-						this.setHistory(videoFile.getNameWithoutExtension()
+
+
+						String nameWithoutExtension = Files.getNameWithoutExtension(videoFile.getVideoFileName());
+
+
+						this.setHistory(nameWithoutExtension
 								+ "\n");
 						this.updateProgress(counter, maxValue - 1);
 						counter++;

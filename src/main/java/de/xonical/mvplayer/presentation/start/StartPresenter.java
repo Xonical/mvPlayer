@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -29,7 +30,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import javax.inject.Inject;
-import listViewTest.MediaToTextLinker;
+import com.google.common.io.Files;
 import de.xonical.mvplayer.model.Directory;
 import de.xonical.mvplayer.model.RegistrationService;
 import de.xonical.mvplayer.model.VideoFile;
@@ -220,9 +221,14 @@ public class StartPresenter implements Initializable {
 					List<VideoFile> videoFiles = dir.getVideoFiles();
 
 					for (VideoFile videoFile : videoFiles) {
+
+						// Create a Thumbnail of a video and link it
 						nailer.create(videoFile);
 						// Thread.sleep(100);
-						this.setHistory(videoFile.getNameWithoutExtension()
+
+						String nameWithoutExtension = Files.getNameWithoutExtension(videoFile.getVideoFileName());
+
+						this.setHistory(nameWithoutExtension
 								+ "\n");
 						this.updateProgress(counter, maxValue - 1);
 						counter++;
@@ -233,11 +239,40 @@ public class StartPresenter implements Initializable {
 				}
 
 				long stopTime = System.currentTimeMillis();
+				this.setHistory("Thumbnailordner -> " + Settings.getInstance().getTempDirectory());
+
+
+				// Now all are videos linked to text and thumbnails
+				for (Directory  dir : directories) {
+					System.out.println("Dir: " + dir.toString());
+					List<VideoFile> videoFiles = dir.getVideoFiles();
+
+					for (VideoFile video: videoFiles){
+						System.out.println(video.getVideoFileName());
+						System.out.println(video.getDescriptionFileName());
+						System.out.println(video.getThumbnailFile());
+					}
+					System.out.println("--------------------");
+				}
+
+				// Let's save data to database
+				for (Directory  dir : directories) {
+
+
+					service.save(dir);
+					List<VideoFile> videoFiles = dir.getVideoFiles();
+
+					for (VideoFile video: videoFiles){
+						service.save(video);
+					}
+				}
+
+
+
 				String done = "Done in " + (stopTime - startTime)
 						+ " msec!";
 				System.out.println(done);
 				this.setHistory(done);
-				this.setHistory("Thumbnailordner -> " + Settings.getInstance().getTempDirectory());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

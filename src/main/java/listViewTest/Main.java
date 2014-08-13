@@ -150,7 +150,7 @@ public class Main extends Application {
 						List<VideoFile> videoFileList = subDir.getVideoFileList();
 
 						for (VideoFile videoFile : videoFileList) {
-							System.out.println(videoFile.getPath());
+							System.out.println(videoFile.getVideoFileName());
 
 						}
 					}

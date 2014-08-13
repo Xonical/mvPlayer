@@ -3,20 +3,18 @@ package listViewTest;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
 import javafx.collections.ObservableList;
-
 import javax.imageio.ImageIO;
-
 import com.xuggle.mediatool.IMediaReader;
 import com.xuggle.mediatool.MediaListenerAdapter;
 import com.xuggle.mediatool.ToolFactory;
 import com.xuggle.mediatool.event.IVideoPictureEvent;
-
 import de.xonical.mvplayer.model.VideoFile;
 
 // http://www.javacodegeeks.com/2011/02/xuggler-tutorial-frames-capture-video.html
@@ -51,7 +49,14 @@ public class VideoThumbnailer {
 	public VideoThumbnailer(Path destinationFolder, ObservableList<VideoFile> videoFiles) {
 		sizeOfVideoList = videoFiles.size();
 		for (VideoFile videoFile : videoFiles) {
-			extractFrameFromVideo(destinationFolder, videoFile.getPath());
+			Path path = null;
+			try {
+				path = Paths.get(new URI(videoFile.getVideoFileName()));
+			} catch (URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			extractFrameFromVideo(destinationFolder, path);
 			isSnapshotWasTaken = false;
 		}
 	}

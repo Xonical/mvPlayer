@@ -3,20 +3,17 @@ package de.xonical.mvplayer.presentation;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.pmw.tinylog.Logger;
-
 import javax.imageio.ImageIO;
-
 import com.xuggle.mediatool.IMediaReader;
 import com.xuggle.mediatool.MediaListenerAdapter;
 import com.xuggle.mediatool.ToolFactory;
 import com.xuggle.mediatool.event.IVideoPictureEvent;
-
 import de.xonical.mvplayer.model.VideoFile;
 import de.xonical.mvplayer.util.Settings;
 
@@ -56,8 +53,8 @@ public class VideoThumbnailer {
 	}
 
 	private void extractFrameFromVideo(Path tempDirectory, VideoFile videoFile) {
-		IMediaReader iMediaReader = ToolFactory.makeReader(videoFile.getPath()
-				.toString());
+
+		IMediaReader iMediaReader = ToolFactory.makeReader(videoFile.getVideoFileName());
 
 		iMediaReader
 				.setBufferedImageTypeToGenerate(BufferedImage.TYPE_3BYTE_BGR);

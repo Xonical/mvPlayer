@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Wed Aug 13 13:43:45 CEST 2014:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0147-cf2e-5263-00000422b138 
+Wed Aug 13 15:07:55 CEST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0147-cf7b-6277-0000045971f8 
 on database directory D:\ttt\artifactID\mvplayerDB  with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
 Loaded from file:/C:/Users/Alfa/.m2/repository/org/apache/derby/derby/10.9.1.0/derby-10.9.1.0.jar
 java.vendor=Oracle Corporation

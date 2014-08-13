@@ -29,7 +29,8 @@ public class MyUtil {
 		// check, if the directory contains media
 		for (File file : files) {
 			if (MyUtil.isVideoFile(file.toPath())) {
-				VideoFile videoFile = new VideoFile(file.toPath());
+				VideoFile videoFile = new VideoFile();
+				videoFile.setVideoFileName(file.getAbsolutePath());
 				videoFiles.add(videoFile);
 			}
 		}
