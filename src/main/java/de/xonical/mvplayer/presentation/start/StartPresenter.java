@@ -91,7 +91,7 @@ public class StartPresenter implements Initializable {
 	private void handleChooseDirectory(ActionEvent event) {
 		System.out.println("Foo");
 		DirectoryChooser directoryChooser = new DirectoryChooser();
-		directoryChooser.setInitialDirectory(new File("i:/MediathekView"));
+		directoryChooser.setInitialDirectory(new File("g:/MediathekView"));
 
 		File selectedDirectory = directoryChooser.showDialog(null); // TODO:
 																	// null

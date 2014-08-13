@@ -25,11 +25,64 @@
                <children>
                   <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="398.0" prefWidth="417.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <ScrollPane prefViewportHeight="195.0" prefViewportWidth="600.0">
+                           <content>
+                              <FlowPane fx:id="flowPane" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <ImageView fx:id="imageView1113" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
+                                       </children>
+                                    </VBox>
+                                    <VBox>
+                                       <children>
+                                          <ImageView fx:id="imageView1114" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="10.0" layoutY="10.0">
+                                       <children>
+                                          <ImageView fx:id="imageView11131" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </FlowPane>
+                           </content>
+                        </ScrollPane>
+                        <HBox prefHeight="195.0" prefWidth="415.0">
                            <children>
-                              <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                           </children></AnchorPane>
-                      <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                              <VBox>
+                                 <children>
+                                    <ImageView fx:id="imageView111" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="10.0">
+                                 <children>
+                                    <ImageView fx:id="imageView1111" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="210.0" layoutY="10.0">
+                                 <children>
+                                    <ImageView fx:id="imageView11111" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
+                                 </children>
+                              </VBox>
+                              <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <ImageView fx:id="imageView1112" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
                     </items>
                   </SplitPane>
                </children>
