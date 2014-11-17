@@ -1,8 +1,23 @@
-igniter.fx
-===========
+# MediathekViewPlayerFX
 
-0. Use recent JDK 8 (JavaFX is already in the classpath). You can use the build.sh to temporarily set the JAVA_HOME in the script
-1. Build the project with mvn clean install
-2. Start the application with java -jar ./target/[project.artifactId]-app.jar
+MediathekViewPlayerFX is a special video player for [MediathekView](http://sourceforge.net/projects/zdfmediathk/?source=directory/). MediaThekView. It also manages the containing informations of each video that MediaThekView generated. 
 
-See also: [http://afterburner.adam-bien.com](http://afterburner.adam-bien.com)
+**MediathekViewPlayerFX can also be used for other purposes if the directory and the file structure is maintained.** 
+
+-RootFolder
+	+VideoFolder1
+		+Video1.mp4
+		+Video1.mp4.txt
+		+Video2.mp4
+		+Video2.mp4.txt
+		...
+	+VideoFolder2
+		+Video1.mp4
+		+Video1.mp4.txt
+		+Video2.mp4
+		+Video2.mp4.txt
+		...
+		
+
+
+**This software is Prealpha and still under development**
