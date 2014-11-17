@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.xonical.mvplayer.presentation.main.MainViewPresenter">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.xonical.mvplayer.presentation.main.MainViewPresenter">
    <center>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
@@ -27,58 +27,17 @@
                     <items>
                         <ScrollPane prefViewportHeight="195.0" prefViewportWidth="600.0">
                            <content>
-                              <FlowPane fx:id="flowPane" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <VBox>
-                                       <children>
-                                          <ImageView fx:id="imageView1113" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
-                                       </children>
-                                    </VBox>
-                                    <VBox>
-                                       <children>
-                                          <ImageView fx:id="imageView1114" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
-                                       </children>
-                                    </VBox>
-                                    <VBox layoutX="10.0" layoutY="10.0">
-                                       <children>
-                                          <ImageView fx:id="imageView11131" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </FlowPane>
+                              <FlowPane fx:id="flowPane" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" />
                            </content>
                         </ScrollPane>
                         <HBox prefHeight="195.0" prefWidth="415.0">
                            <children>
-                              <VBox>
+                              <TextArea fx:id="descriptionTextArea" prefHeight="239.0" prefWidth="303.0" />
+                              <AnchorPane prefHeight="292.0" prefWidth="281.0">
                                  <children>
-                                    <ImageView fx:id="imageView111" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
-                                 </children>
-                              </VBox>
-                              <VBox layoutX="10.0" layoutY="10.0">
-                                 <children>
-                                    <ImageView fx:id="imageView1111" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
-                                 </children>
-                              </VBox>
-                              <VBox layoutX="210.0" layoutY="10.0">
-                                 <children>
-                                    <ImageView fx:id="imageView11111" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
-                                 </children>
-                              </VBox>
-                              <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <VBox>
-                                       <children>
-                                          <ImageView fx:id="imageView1112" fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label prefHeight="17.0" prefWidth="199.0" text="Label" />
-                                       </children>
-                                    </VBox>
+                                    <Label text="Label" />
+                                    <ComboBox layoutX="55.0" layoutY="50.0" prefWidth="150.0" />
+                                    <Button layoutX="64.0" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Button" />
                                  </children>
                               </AnchorPane>
                            </children>

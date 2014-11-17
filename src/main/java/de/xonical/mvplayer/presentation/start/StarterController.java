@@ -105,7 +105,6 @@ public class StarterController implements Initializable {
 
 		File selectedDirectory = directoryChooser.showDialog(null); // TODO:
 																	// null
-																	// durch
 																	// view //
 																	// ersetzen
 

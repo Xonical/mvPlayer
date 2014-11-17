@@ -3,9 +3,8 @@ package de.xonical.mvplayer.presentation;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import listViewTest.MediaFile;
 
-public class VideoFile extends MediaFile {
+public class VideoFile extends MediaFile  {
 
 	private Path pathVideoFile;
 	private Path pathTextFile;
