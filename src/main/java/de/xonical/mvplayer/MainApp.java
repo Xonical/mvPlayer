@@ -63,26 +63,26 @@ public class MainApp extends Application {
 	 */
 	public void initRootLayout() {
 		try {
-			// Load root layout from fxml file.
-			// FXMLLoader loader = new FXMLLoader();
-			// loader.setLocation(MainApp.class
-			// .getResource("view/RootLayout.fxml"));
-			// rootLayout = (BorderPane) loader.load();
-
+			 //Load root layout from fxml file.
+			 FXMLLoader loader = new FXMLLoader();
+			 loader.setLocation(MainApp.class
+			 .getResource("view/RootLayout.fxml"));
+			 rootLayout = (BorderPane) loader.load();
+System.out.println("FF");
 //			 FXMLLoader loader = new FXMLLoader();
 //			 loader.setLocation(MainApp.class
 //			 .getResource("Playground.fxml"));
 //			 rootLayout3 = (VBox) loader.load();
 
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class
-					.getResource("presentation/start/Starter.fxml"));
-			rootLayout3 = (VBox) loader.load();
-
-			// Show the scene containing the root layout.
-			Scene scene = new Scene(rootLayout3);
-			primaryStage.setScene(scene);
-			primaryStage.show();
+//			FXMLLoader loader = new FXMLLoader();
+//			loader.setLocation(MainApp.class
+//					.getResource("presentation/start/Starter.fxml"));
+//			rootLayout3 = (VBox) loader.load();
+//
+//			// Show the scene containing the root layout.
+//			Scene scene = new Scene(rootLayout3);
+//			primaryStage.setScene(scene);
+////			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

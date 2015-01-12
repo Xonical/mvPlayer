@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author adam-bien.com
+ * @author Sebastian Schön
  */
 public class App extends Application {
 
